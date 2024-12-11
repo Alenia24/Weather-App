@@ -19,7 +19,7 @@
       <main>
         <div class="weather-app-data">
           <div>
-            <h1 id="current-city">New York, USA</h1>
+            <h1 class="weather-app-city" id="city">New York, USA</h1>
             <div class="weather-app-temperature-container">
               <div class="weather-app-temperature">79</div>
               <div class="weather-app-unit">°C</div>
@@ -30,11 +30,11 @@
             </p>
           </div>
           <div class="search">
-              <form action="">
+              <form class="search-form" id="search-form">
                 <input
                   type="search"
                   name=""
-                  id=""
+                  id="search-form-input"
                   placeholder="Enter a city..."
                   required
                   class="search-form-input"
@@ -58,5 +58,6 @@
         on <a href="https://weatherforecastapppp.netlify.app/">Netlify</a>
       </footer>
     </div>
+    <script src="src/index.js"></script>
   </body>
 </html>

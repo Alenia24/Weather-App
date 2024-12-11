@@ -44,7 +44,7 @@ main {
     justify-content: space-between;
 }
 
-#current-city {
+.weather-app-city {
     margin: 0;
 }
 .weather-app-temperature-container {
