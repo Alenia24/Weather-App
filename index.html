@@ -4,43 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=searchclear_day"
+    />
     <link rel="stylesheet" href="src/index.css" />
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-</style>
   </head>
   <body>
     <div class="weather-app">
-      <header>
-        <form action="">
-          <input
-            type="search"
-            name=""
-            id=""
-            placeholder="Enter a city"
-            required
-          />
-          <input type="submit" name="" id="" value="Search" />
-        </form>
-      </header>
+      <div class="current-city-date">
+        <p id="current-city-date">Tuesday, December 10, 2024</p>
+        <p id="current-city-time">14:49</p>
+      </div>
       <main>
-        <div>
-          <h1>New York</h1>
-          <p>
-            Tuesday, 14:49, scattered clouds
-            <br />
-            Humidity: 66%, Wind: 3.13 km/h
-          </p>
-        </div>
-        <div>🌥️12°C</div>
+        <div class="weather-app-data">
+          <div>
+            <h1 id="current-city">New York, USA</h1>
+            <div class="weather-app-temperature-container">
+              <div class="weather-app-temperature">79</div>
+              <div class="weather-app-unit">°C</div>
+            </div>
+            <p class="weather-app-details">Scattered Clouds</p>
+            <p class="weather-app-details">
+              Humidty: <strong>66%</strong>, Wind: <strong>3.13km/h</strong>
+            </p>
+          </div>
+          <div class="search">
+              <form action="">
+                <input
+                  type="search"
+                  name=""
+                  id=""
+                  placeholder="Enter a city..."
+                  required
+                  class="search-form-input"
+                />
+                <input
+                  type="submit"
+                  value="search"
+                  class="material-symbols-outlined search-form-button"
+                />
+              </form>
+              <div class="weather-app-icon">
+                <span class="material-symbols-outlined city-icon">clear_day</span>
+            </div>
+          </div>
       </main>
-
       <footer>
-        Coded with 💗 by
-        <a href="https://github.com/Alenia24">Alenia Allen</a> is open-sourced
-        on <a href="https://github.com/Alenia24/Weather-App">Github</a> and
-        hosted on
-        <a href="https://weatherforecastapppp.netlify.app/">Netlify</a>
+        This project was coded with 💗 by
+        <a href="https://github.com/Alenia24" target="_blank">Alenia Allen</a>
+        is open-sourced on
+        <a href="https://github.com/Alenia24/Weather-App">Github</a> and hosted
+        on <a href="https://weatherforecastapppp.netlify.app/">Netlify</a>
       </footer>
     </div>
   </body>
