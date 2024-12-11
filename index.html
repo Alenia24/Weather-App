@@ -14,8 +14,8 @@
   <body>
     <div class="weather-app">
       <div class="current-city-date">
-        <p id="current-city-date">Tuesday, December 10, 2024</p>
-        <p id="current-city-time">14:49</p>
+        <p id="date"></p>
+        <p id="time"></p>
       </div>
       <main>
         <div class="weather-app-data">
@@ -25,9 +25,9 @@
               <div class="weather-app-temperature" id="temperature"></div>
               <div class="weather-app-unit">°C</div>
             </div>
-            <p class="weather-app-details">Scattered Clouds</p>
-            <p class="weather-app-details">
-              Humidty: <strong>66%</strong>, Wind: <strong>3.13km/h</strong>
+            <p class="weather-app-details"><span id="description"></span>
+              <br />
+              Humidty: <strong id="humidity"></strong>, Wind: <strong id="wind-speed"></strong>
             </p>
           </div>
           <div class="search">

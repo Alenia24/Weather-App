@@ -5,7 +5,68 @@ function updateWeather(response) {
     temperatureElement.innerHTML = Math.round(temperature);
 
     let cityElement = document.querySelector("#city");
-    cityElement.innerHTML = response.data.city; 
+    cityElement.innerHTML = response.data.city;
+
+    let descriptionElement = document.querySelector("#description");
+    descriptionElement.innerHTML = response.data.condition.description;
+
+    let humidityElement = document.querySelector("#humidity");
+    humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+
+    let windSpeedElement = document.querySelector("#wind-speed");
+    windSpeedElement.innerHTML = `${response.data.wind.speed} km/h`;
+
+    let date = new Date(response.data.time * 1000);
+
+    let timeElement = document.querySelector("#time");
+    timeElement.innerHTML = formatTime(date);
+
+    let dateElement = document.querySelector("#date");
+    dateElement.innerHTML = formatDate(date);
+}
+
+function formatTime(date) {
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+
+    if(minutes < 10) {
+        minutes = `0${minutes}`;
+    }
+    
+    return `${hours}:${minutes}`
+}
+
+function formatDate(date) {
+    let daysofWeek = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    let monthsofYear = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    let day = daysofWeek[date.getDay()];
+    let currentDate = date.getDate();
+    let month = monthsofYear[date.getMonth()];
+    let year = date.getFullYear();
+     
+    return `${day}, ${currentDate} ${month}, ${year}`;
+
 }
 
 function searchCity(city) {

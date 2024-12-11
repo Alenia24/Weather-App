@@ -26,12 +26,12 @@ a {
     top: -25px;
 }
 
-#current-city-date {
+#date {
     padding: 0;
     margin: 0;
 }
 
-#current-city-time {
+#time {
     margin: 0;
 }
 
