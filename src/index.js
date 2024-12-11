@@ -23,6 +23,18 @@ function updateWeather(response) {
 
     let dateElement = document.querySelector("#date");
     dateElement.innerHTML = formatDate(date);
+
+    let iconElement = document.querySelector("#icon")
+    let icon = updateIcon(response.data.condition.icon);
+    iconElement.innerHTML = `<img src="${icon}"class="city-icon">`;
+}
+
+function updateIcon(icon){
+    if(icon === "mist-night") {
+        return "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-512.png";
+    }
+
+    
 }
 
 function formatTime(date) {
