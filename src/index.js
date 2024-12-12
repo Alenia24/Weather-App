@@ -26,15 +26,43 @@ function updateWeather(response) {
 
     let iconElement = document.querySelector("#icon")
     let icon = updateIcon(response.data.condition.icon);
-    iconElement.innerHTML = `<img src="${icon}"class="city-icon">`;
+    iconElement.innerHTML = `${icon}`;
 }
 
-function updateIcon(icon){
-    if(icon === "mist-night") {
-        return "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-512.png";
-    }
-
-    
+function updateIcon(icon) {
+  if (icon === "clear-sky-day") {
+    return `<img src="assets/clear-sky-day.svg" class="city-icon">`;
+  } else if (icon === "clear-sky-night") {
+    return `<img src="assets/clear-sky-night.svg" class="city-icon">`;
+  } else if (icon === "few-clouds-day") {
+    return `<img src="assets/few-clouds-day.svg" class="city-icon">`;
+  } else if (icon === "few-clouds-night") {
+    return `<img src="assets/few-clouds-night.svg" class="city-icon">`;
+  } else if (icon === "scattered-clouds-day") {
+    return `<img src="assets/scattered-clouds-day.svg" class="city-icon">`;
+  } else if (icon === "scattered-clouds-night") {
+    return `<img src="assets/scattered-clouds-night.svg" class="city-icon">`;
+  } else if (icon === "broken-clouds-day") {
+    return `<img src="assets/broken-clouds-day.svg" class="city-icon">`;
+  } else if (icon === "broken-clouds-night") {
+    return `<img src="assets/broken-clouds-night.svg" class="city-icon">`;
+  } else if (icon === "shower-rain-day") {
+    return `<img src="assets/shower-rain-day.svg" class="city-icon">`;
+  } else if (icon === "shower-rain-night") {
+    return `<img src="assets/shower-rain-night.svg" class="city-icon">`;
+  } else if (icon === "rain-day") {
+    return `<img src="assets/rain-day.svg" class="city-icon">`;
+  } else if (icon === "rain-night") {
+    return `<img src="assets/rain-night.svg" class="city-icon">`;
+  } else if (icon === "thunderstorm-day") {
+    return `<img src="assets/thunderstorm-day.svg" class="city-icon">`;
+  } else if (icon === "thunderstorm-night") {
+    return `<img src="assets/thunderstorm-night.svg" class="city-icon">`;
+  } else if (icon === "snow-day") {
+    return `<img src="assets/snow-day.svg" class="city-icon">`;
+  } else if (icon === "snow-night") {
+    return `<img src="assets/snow-night.svg" class="city-icon">`;
+  }
 }
 
 function formatTime(date) {
