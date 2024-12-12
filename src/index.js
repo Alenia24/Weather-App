@@ -1,32 +1,32 @@
 function updateWeather(response) {
-    console.log(response);
-    let temperatureElement = document.querySelector("#temperature");
-    let temperature = response.data.temperature.current;
-    temperatureElement.innerHTML = Math.round(temperature);
+  console.log(response);
+  let temperatureElement = document.querySelector("#temperature");
+  let temperature = response.data.temperature.current;
+  temperatureElement.innerHTML = Math.round(temperature);
 
-    let cityElement = document.querySelector("#city");
-    cityElement.innerHTML = response.data.city;
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = response.data.city;
 
-    let descriptionElement = document.querySelector("#description");
-    descriptionElement.innerHTML = response.data.condition.description;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.condition.description;
 
-    let humidityElement = document.querySelector("#humidity");
-    humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
 
-    let windSpeedElement = document.querySelector("#wind-speed");
-    windSpeedElement.innerHTML = `${response.data.wind.speed} km/h`;
+  let windSpeedElement = document.querySelector("#wind-speed");
+  windSpeedElement.innerHTML = `${response.data.wind.speed} km/h`;
 
-    let date = new Date(response.data.time * 1000);
+  let date = new Date(response.data.time * 1000);
 
-    let timeElement = document.querySelector("#time");
-    timeElement.innerHTML = formatTime(date);
+  let timeElement = document.querySelector("#time");
+  timeElement.innerHTML = formatTime(date);
 
-    let dateElement = document.querySelector("#date");
-    dateElement.innerHTML = formatDate(date);
+  let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(date);
 
-    let iconElement = document.querySelector("#icon")
-    let icon = updateIcon(response.data.condition.icon);
-    iconElement.innerHTML = `${icon}`;
+  let iconElement = document.querySelector("#icon");
+  let icon = updateIcon(response.data.condition.icon);
+  iconElement.innerHTML = `${icon}`;
 }
 
 function updateIcon(icon) {
@@ -66,64 +66,92 @@ function updateIcon(icon) {
 }
 
 function formatTime(date) {
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
 
-    if(minutes < 10) {
-        minutes = `0${minutes}`;
-    }
-    
-    return `${hours}:${minutes}`
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
 }
 
 function formatDate(date) {
-    let daysofWeek = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    let monthsofYear = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    let day = daysofWeek[date.getDay()];
-    let currentDate = date.getDate();
-    let month = monthsofYear[date.getMonth()];
-    let year = date.getFullYear();
-     
-    return `${day}, ${currentDate} ${month}, ${year}`;
+  let daysofWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let monthsofYear = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let day = daysofWeek[date.getDay()];
+  let currentDate = date.getDate();
+  let month = monthsofYear[date.getMonth()];
+  let year = date.getFullYear();
 
+  return `${day}, ${currentDate} ${month}, ${year}`;
 }
 
 function searchCity(city) {
-    let apiKey = "fb2da4606e22fot4bcd3216b032ab697";
-    let apiUrl =
-      `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-    
-    axios.get(apiUrl).then(updateWeather);
+  let apiKey = "fb2da4606e22fot4bcd3216b032ab697";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(updateWeather);
 }
 
 function handleSearchSubmit(event) {
-    event.preventDefault();
-    let searchInput = document.querySelector("#search-form-input");
-    searchCity(searchInput.value)
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-form-input");
+  searchCity(searchInput.value);
+}
+
+function displayForecast() {
+  let daysofWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+  ];
+
+  let forecastHTML = "";
+
+  daysofWeek.forEach(function (day) {
+    forecastHTML += `
+        <div class="weather-forecast-day">
+            <div class="weather-forecast-date">${day}</div>
+                <div class="weather-forecast-icon">🌥️</div>
+                <div class="weather-forecast-temperatures">
+                <div class="weather-forecast-temperature">
+                    <strong>15°C |</strong>
+                </div>
+                <div class="weather-forecast-temperature">9°C</div>
+            </div>
+        </div>
+    `;
+  });
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHTML;
 }
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("New York");
+displayForecast();
