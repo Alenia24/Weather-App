@@ -11,7 +11,7 @@ a {
 
 .weather-app {
   background: linear-gradient(#0e1236, #040327);
-  max-width: 700px;
+  max-width: 650px;
   margin: 60px auto;
   padding: 60px;
   border-radius: 10px;
@@ -78,7 +78,7 @@ main {
   background: #21274b;
   color: white;
   padding: 8px 20px;
-  width: 150px;
+  width: 180px;
   border: none;
   border-radius: 20px;
   position: relative;
@@ -119,6 +119,23 @@ main {
   margin-top: 50px;
 }
 
+.weather-forecast-day {
+  padding: 10px 15px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255,255,255, 0));
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.weather-forecast-day:hover {
+  transform: scale(1.1);
+}
+
+.glass {
+  background: #21274b;
+  backdrop-filter: blur(10px);
+}
+
 .weather-forecast-date {
   text-align: center;
   font-size: 16px;
@@ -127,8 +144,11 @@ main {
 }
 
 .weather-forecast-icon {
-  font-size: 38px;
-  text-align: center;
+  width: 88px;
+  height: 88px;
+  display: block;
+  margin: 0 auto;  
+  
 }
 
 .weather-forecast-temperatures {
