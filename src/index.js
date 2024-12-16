@@ -25,6 +25,7 @@ function refreshWeather(response) {
 
   let iconElement = document.querySelector("#icon");
   let icon = updateIcon(response.data.condition.icon);
+  console.log(response.data.condition.icon);
   iconElement.innerHTML = `${icon}`;
 
   getForecast(response.data.city);
@@ -63,6 +64,10 @@ function updateIcon(icon) {
     return `<img src="./assets/snow-day.svg">`;
   } else if (icon === "snow-night") {
     return `<img src="./assets/snow-night.svg">`;
+  } else if (icon === "mist-day") {
+    return `<img src="./assets/mist-day.svg">`;
+  } else if (icon === "mist-night") {
+    return `<img src="./assets/mist-night.svg">`;
   }
 }
 
